@@ -1,0 +1,25 @@
+version: "3"
+services:
+  bind:
+    build: ./bind
+    ports:
+      - 53:53
+      - 53:53/udp
+    networks:
+      app_net:
+        ipv4_address: 10.10.10.10
+  nodejs:
+    build: ./nodejs
+    dns:
+      - 10.10.10.10
+    volumes:
+      - ./nodejs/volume:/app/volume
+    networks:
+      app_net:
+        ipv4_address: 10.10.10.11
+networks:
+  app_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.10.10.0/24

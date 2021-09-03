@@ -1,0 +1,13 @@
+$ORIGIN com.
+$TTL 3600       ; 1 hour
+@ IN SOA ns1.com. postmaster.com. (
+        2020111801  ; Serial
+        3600        ; Refresh
+        1200        ; Retry
+        1209600     ; Expire
+        900         ; Minimum
+        )
+@       IN  NS      ns1.com.
+
+ns1     IN  A       192.168.10.10
+test    IN  A       192.168.0.100
