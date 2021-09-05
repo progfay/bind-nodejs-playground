@@ -1,4 +1,4 @@
-FROM node:15.2.0
+FROM node:latest
 
 WORKDIR /app
 RUN apt-get update && apt-get -y upgrade && apt-get install -y vim dnsutils
